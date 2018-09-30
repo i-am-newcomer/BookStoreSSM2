@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.zy.entity.OrderMapper">
+	<select id="selectOrderByCId" parameterType="int" resultMap="OrderUserMapper">
+		select * from orders where cid=#{id}
+	</select>
+	
+	<select id="selectOrderById" parameterType="int" resultMap="OrderUserMapper">
+		select * from orders where id=#{id}
+	</select>
+	
+	<insert id="insertOrder" parameterType="com.zy.entity.Order">
+		insert into orders(time, price, cid) values(#{time}, #{price}, #{user.id})
+	</insert>
+	
+	<update id="updateOrder" parameterType="com.zy.entity.Order">
+		update orders set time=#{time}, price=#{price} where id=#{id}
+	</update>
+	
+	<delete id="deleteOrder" parameterType="int">
+		delete from orders where id=#{id}
+	</delete>
+	
+	<resultMap type="com.zy.entity.Order" id="OrderUserMapper">
+		<association property="user" column="cid" javaType="com.zy.entity.User" select="com.zy.entity.UserMapper.selectUserById" />
+	</resultMap>
+	
+</mapper>

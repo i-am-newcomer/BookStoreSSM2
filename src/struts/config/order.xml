@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<package name="order" extends="struts-default">
+	
+		<interceptors>
+			<interceptor name="loginCheckInterceptor" class="com.zy.interceptor.LoginCheckInterceptor" />
+			<interceptor-stack name="orderStack" >
+				<interceptor-ref name="loginCheckInterceptor" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		
+		<!-- <default-interceptor-ref name="orderStack" /> -->
+	
+		<global-results>
+			<result name="login">/login.jsp</result>
+		</global-results>
+		
+		<action name="addOrder" class="orderAction" method="addOrder">
+			<result>/addsuccess.jsp</result>
+			<result name="error">/addfail.jsp</result>
+			<interceptor-ref name="orderStack" />
+		</action>
+		
+		<action name="showOrder" class="orderAction" method="showOrder">
+			<result>/shoppingcart.jsp</result>
+			<result name="empty">/emptycart.jsp</result>
+			<interceptor-ref name="orderStack" />
+		</action>
+	</package>
+</struts>

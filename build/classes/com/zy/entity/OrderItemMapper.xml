@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.zy.entity.OrderItemMapper">
+	<select id="selectOrderItemByOId" parameterType="int" resultMap="OrderItemBookMapper">
+		select * from orderitems where oid=#{id}
+	</select>
+	
+	<select id="selectOrderItemById" parameterType="map" resultMap="OrderItemBookMapper">
+		select * from orderitems where oid=#{oid} and bid=#{bid}
+	</select>                                                          
+	
+	<insert id="insertOrderItem" parameterType="com.zy.entity.OrderItem">
+		insert into orderitems(oid, item, bid, quantity, price) values(#{order.id}, #{item}, #{book.id}, #{quantity}, #{price})
+	</insert>
+	
+	<update id="updateOrderItem" parameterType="com.zy.entity.OrderItem">
+		update orderitems set quantity=#{quantity}, price=#{price} where oid=#{order.id} and item=#{item}
+	</update>
+	
+	<resultMap type="com.zy.entity.OrderItem" id="OrderItemBookMapper">
+		<association property="book" column="bid" javaType="com.zy.entity.Book" select="com.zy.entity.BookMapper.selectBookById" />
+		<association property="order" column="oid" javaType="com.zy.entity.Order" select="com.zy.entity.OrderMapper.selectOrderById" />
+	</resultMap>
+</mapper>
