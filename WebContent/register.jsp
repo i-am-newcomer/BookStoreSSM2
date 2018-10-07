@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-<%@ taglib prefix="s" uri="/struts-tags" %>
 
 <!DOCTYPE html>
 <html>
@@ -17,38 +16,34 @@
 	</td></tr>
 	
 	<tr><td>
-		<form action="register.action" method="post">
+		<form action="register.do" method="post">
 			<table width="80%" rules="none" border="0" align="center">
 				<tr><td colspan="3" align="center"><h1>注册新用户</h1></td></tr>
 				
-				<!-- 通过EL表达式获取 -->
 				<tr><td colspan="3" align="center"><h3>${requestScope.register_result}</h3></td></tr>
-				<!-- 通过OGNL表达式获取 -->
-				<%-- <tr><td colspan="3" align="center"><h3><s:actionerror/></h3></td></tr> --%>
-				<tr><td colspan="3" align="center"><h3><s:property value="#request.checkcode_result"/></h3></td></tr>
 				
 				<tr>
 					<td align="right" width="30%"><span>邮箱</span></td>
-					<td align="left" width="70%" colspan="2"><input type="text" name="user.email" placeholder="邮箱账号" style="width:250px;height:25px;margin:5px;"/></td>
+					<td align="left" width="70%" colspan="2"><input type="text" name="email" placeholder="邮箱账号" style="width:250px;height:25px;margin:5px;"/></td>
 				</tr>
 				<tr>
 					<td align="right" width="30%"><span>手机号</span></td>
-					<td align="left" width="70%" colspan="2"><input type="text" name="user.phone" placeholder="11位手机号码" style="width:250px;height:25px;margin:5px;"/></td>
+					<td align="left" width="70%" colspan="2"><input type="text" name="phone" placeholder="11位手机号码" style="width:250px;height:25px;margin:5px;"/></td>
 				</tr>
 				<tr>
 					<td align="right" width="30%"><span>用户名</span></td>
-					<td align="left" width="70%" colspan="2"><input type="text" name="user.name" placeholder="用户名，不得少于四位" style="width:250px;height:25px;margin:5px;"/></td>
+					<td align="left" width="70%" colspan="2"><input type="text" name="name" placeholder="用户名，不得少于四位" style="width:250px;height:25px;margin:5px;"/></td>
 				</tr>
 				<tr>
 					<td align="right" width="30%"><span>密码</span></td>
-					<td align="left" width="70%" colspan="2"><input type="password" name="user.pwd" placeholder="密码，不得少于6位" style="width:250px;height:25px;margin:5px;"/></td>
+					<td align="left" width="70%" colspan="2"><input type="password" name="pwd" placeholder="密码，不得少于6位" style="width:250px;height:25px;margin:5px;"/></td>
 				</tr>
 				<tr>
 					<td align="right" width="30%"><span>确认密码</span></td>
 					<td align="left" width="70%" colspan="2"><input type="password" name="confirm_pwd" style="width:250px;height:25px;margin:5px;"/></td>
 				</tr>
 				<tr>
-					<td align="right" width="40%"><img alt="checkcode" src="checkcode.action"></td>
+					<td align="right" width="40%"><img alt="checkcode" src="checkcode.do"></td>
 					<td align="left" width="20%"><input type="text" name="in_checkcode" style="width:200px;height:25px;margin:5px;"></td>
 					<td align="left" width="40%"><a href="" onclick="myReload()" style="color:red">看不清，换一张</a></td>
 				</tr>

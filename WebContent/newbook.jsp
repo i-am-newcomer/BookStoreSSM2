@@ -40,16 +40,16 @@ a:hover,a:active{
 	<tr><td colspan="4" align="left" valign="middle"><span style="color:#487A6F;font-size:22px;">新书上架</span></td></tr>
 	<tr><td colspan="4" align="left" valign="top"><br/></td></tr>
 	<tr align="center">
-		<td><a href="selectBookById?id=3" target="_blank"><img alt="CET6" src="images/3.jpg" class="image1"></a></td>
-		<td><a href="selectBookById?id=25" target="_blank"><img alt="novel1" src="images/25.jpg" class="image1"></a></td>
-		<td><a href="selectBookById?id=7" target="_blank"><img alt="java1" src="images/7.jpg" class="image1"></a></td>
-		<td><a href="selectBookById?id=20" target="_blank"><img alt="literature1" src="images/20.jpg" class="image1"></a></td>
+		<td><a href="selectBookById.do?id=3" target="_blank"><img alt="CET6" src="images/3.jpg" class="image1"></a></td>
+		<td><a href="selectBookById.do?id=25" target="_blank"><img alt="novel1" src="images/25.jpg" class="image1"></a></td>
+		<td><a href="selectBookById.do?id=7" target="_blank"><img alt="java1" src="images/7.jpg" class="image1"></a></td>
+		<td><a href="selectBookById.do?id=20" target="_blank"><img alt="literature1" src="images/20.jpg" class="image1"></a></td>
 	</tr>
 	<tr align="center">
-		<td><a href="selectBookById?id=3" target="_blank">星火英语六级真题</a></td>
-		<td><a href="selectBookById?id=25" target="_blank">挪威的森林</a></td>
-		<td><a href="selectBookById?id=7" target="_blank">深入理解java虚拟机</a></td>
-		<td><a href="selectBookById?id=20" target="_blank">天长地久：给美君的信</a></td>
+		<td><a href="selectBookById.do?id=3" target="_blank">星火英语六级真题</a></td>
+		<td><a href="selectBookById.do?id=25" target="_blank">挪威的森林</a></td>
+		<td><a href="selectBookById.do?id=7" target="_blank">深入理解java虚拟机</a></td>
+		<td><a href="selectBookById.do?id=20" target="_blank">天长地久：给美君的信</a></td>
 	</tr>
 	<tr align="center">
 		<td><span class="author">汪开虎</span></td>

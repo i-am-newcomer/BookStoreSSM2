@@ -18,7 +18,7 @@
 		<td colspan="2"><h1>商品已成功添加至购物车</h1></td>
 	</tr>
 	<tr align="center">
-		<td><a href="showOrder.action" style="color:red;text-decoration:none;font-size:24px;">去购物车结算</a></td>
+		<td><a href="showOrder.do" style="color:red;text-decoration:none;font-size:24px;">去购物车结算</a></td>
 		<td><a href="default.jsp" style="color:red;text-decoration:none;font-size:24px;">继续购物</a></td>
 	</tr>
 	

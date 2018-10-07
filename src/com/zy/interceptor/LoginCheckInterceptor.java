@@ -1,26 +1,40 @@
 package com.zy.interceptor;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.struts2.ServletActionContext;
+import org.springframework.web.servlet.HandlerInterceptor;
 
-import com.opensymphony.xwork2.Action;
-import com.opensymphony.xwork2.ActionInvocation;
-import com.opensymphony.xwork2.interceptor.AbstractInterceptor;
 import com.zy.entity.User;
 
-public class LoginCheckInterceptor extends AbstractInterceptor {
-
+public class LoginCheckInterceptor implements HandlerInterceptor {
+	private List<String> allowedPass;
+	
+	public void setAllowedPass(List<String> allowedPass) {
+		this.allowedPass = allowedPass;
+	}
+	
 	@Override
-	public String intercept(ActionInvocation invocation) throws Exception {
-		HttpServletRequest request = ServletActionContext.getRequest();
-		HttpSession session = request.getSession();
-		User user = (User)session.getAttribute("user");
-		if(user==null) {
-			return Action.LOGIN;
+	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+			throws Exception {
+		String url = request.getRequestURL().toString();
+		for(String item:allowedPass) {
+			if(url.endsWith(item)) {
+				HttpSession session = request.getSession();
+				User user = (User)session.getAttribute("user");
+				System.out.println("user:"+user);
+				if(user!=null) {
+					return true;
+				}
+				response.sendRedirect(request.getContextPath()+"/login.jsp");
+				return false;
+			}
 		}
-		return invocation.invoke();
+		return true;
+
 	}
 
 }

@@ -60,7 +60,7 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	/*检查注册信息*/
-	public String register(User user, String confirm_pwd) {
+	public String register(User user, String confirm_pwd, String in_checkcode, String checkcode) {
 		if(this.selectUserByEmail(user.getEmail())!=null) {
 			return "该邮箱已被注册";
 		}
@@ -85,6 +85,9 @@ public class UserServiceImpl implements UserService {
 		else if(!user.getPwd().equals(confirm_pwd)) {
 			return "密码和确认密码不一致";
 		}
+		else if(!in_checkcode.equals(checkcode)) {
+			return "验证码输入错误";
+		}
 		else if(this.insertUser(user)<0) {
 			return "注册失败";
 		}
@@ -93,7 +96,7 @@ public class UserServiceImpl implements UserService {
 
 	/*检查登录信息*/
 	@Override
-	public Object login(String name, String pwd) {
+	public Object login(String name, String pwd, String in_checkcode, String checkcode) {
 		User user = null;
 		if((this.selectUserByEmail(name)==null) && (this.selectUserByPhone(name)==null) && (this.selectUserByName(name)==null)) {
 			return "用户名不存在";
@@ -109,6 +112,9 @@ public class UserServiceImpl implements UserService {
 		}
 		if(!user.getPwd().equals(pwd)) {
 			return "密码错误";
+		}
+		else if(!in_checkcode.equals(checkcode)) {
+			return "验证码输入错误";
 		}
 		return user;
 	}

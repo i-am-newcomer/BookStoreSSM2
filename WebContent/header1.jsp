@@ -13,10 +13,10 @@
 			<table border="0" align="center">
 				<tr><td colspan="2"><a href="register.jsp" style="text-decoration:none;color:red;font-size:14px">新用户注册</a></td></tr>
 				<tr>
-					<td><a href="beforeLogin.action" style="text-decoration:none;color:red;font-size:14px">登录</a></td>
-					<td><a href="logout.action" style="text-decoration:none;color:red;font-size:14px">退出</a></td>
+					<td><a href="beforeLogin.do" style="text-decoration:none;color:red;font-size:14px">登录</a></td>
+					<td><a href="logout.do" style="text-decoration:none;color:red;font-size:14px">退出</a></td>
 				</tr>
-				<tr><td colspan="2"><a href="showOrder.action" style="text-decoration:none;color:red;font-size:14px">购物车</a></td></tr>
+				<tr><td colspan="2"><a href="showOrder.do" style="text-decoration:none;color:red;font-size:14px">购物车</a></td></tr>
 				<tr><td colspan="2"><a href="default.jsp" style="text-decoration:none;color:red;font-size:14px">首页</a></td></tr>
 			</table>
 		</td>

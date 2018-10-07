@@ -1,4 +1,4 @@
-package com.zy.action;
+package com.zy.controller;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -11,19 +11,15 @@ import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.struts2.ServletActionContext;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.opensymphony.xwork2.Action;
-
-@Controller("checkCodeAction")
-@Scope("prototype")
-public class CheckCodeAction {
+@Controller
+public class CheckCodeController {
 	
-	public String execute() throws IOException {
+	@RequestMapping("/checkcode")
+	public void checkcode(HttpServletResponse response, HttpSession session) throws IOException {
 		//设置响应首部
-		HttpServletResponse response = ServletActionContext.getResponse();
 		response.setContentType("image/jpeg");
 		response.setCharacterEncoding("utf-8");
 		//设置不缓存图片
@@ -45,7 +41,6 @@ public class CheckCodeAction {
 		int rdint = rd.nextInt(8999)+1000;
 		String rdstr = String.valueOf(rdint);
 		//将随机数保存在会话属性中
-		HttpSession session = ServletActionContext.getRequest().getSession();
 		session.setAttribute("checkcode", rdstr);
 		//画随机数
 		g.setColor(Color.BLUE);
@@ -61,8 +56,7 @@ public class CheckCodeAction {
 		g.dispose();
 		//输出图片
 		ImageIO.write(image, "jpeg", response.getOutputStream());
-		
-		return Action.NONE;
 	}
+
 
 }

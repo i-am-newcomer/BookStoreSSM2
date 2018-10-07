@@ -4,11 +4,11 @@
 	</head>
 	<body>
 		<h3>BOOK STORE demo</h3>
-		<h4>版本：spring5+struts2+mybatis3 v1.0</h4>
+		<h4>版本：spring5+springmvc+mybatis3 v1.0</h4>
 		<h4>特点：</h4>
-		<h5>1、采用spring5+struts2+mybatis3框架编写的一个小型书店网站；基本使用table方式进行页面布局</h5>
+		<h5>1、采用spring5+springmvc+mybatis3框架编写的一个小型书店网站；基本使用table方式进行页面布局</h5>
 		<h5>2、采用注解方式开发</h5>
-		<h5>3、编写并配置了两个拦截器LoginInterceptor和CheckCodeInterceptor</h5>
+		<h5>3、编写并配置了拦截器LoginInterceptor</h5>
 		<h5>4、重新设计了orders和orderitems表</h5>
 		<h4>缺点：</h4>
 		<h5>1、购物车页面全选等显示待补全；</h5>

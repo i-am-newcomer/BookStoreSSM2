@@ -22,8 +22,8 @@ public List<User> selectUserList();
 	
 	public int updateUser(User user);
 	
-	public String register(User user, String confirm_pwd);
+	public String register(User user, String confirm_pwd, String in_checkcode, String checkcode);
 	
-	public Object login(String name, String pwd);
+	public Object login(String name, String pwd, String in_checkcode, String checkcode);
 
 }
